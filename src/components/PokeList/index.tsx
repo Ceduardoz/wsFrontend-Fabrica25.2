@@ -4,7 +4,7 @@ import { api } from "@/src/services/api";
 import { useEffect, useState } from "react";
 import styles from "./styles.module.css";
 
-// Type do Pokemon
+// Type de todos os Pokemons
 type Pokemon = {
   id: number;
   name: string;
@@ -14,14 +14,18 @@ type Pokemon = {
 };
 
 // Type da estrutuda da API
-type PokemonType = { type: { name: string } };
+type PokemonTypeResponse = { type: { name: string } };
 
-export function PokeList() {
+type PokeListProps = {
+  searchTerm: string;
+};
+
+export function PokeList({ searchTerm }: PokeListProps) {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
 
   useEffect(() => {
     api
-      .get("/pokemon?limit=150")
+      .get("/pokemon?limit=151")
       .then(async res => {
         const results: Pokemon[] = res.data.results;
 
@@ -34,20 +38,25 @@ export function PokeList() {
               name: pokeData.data.name,
               url: p.url,
               image: pokeData.data.sprites.front_default,
-              types: pokeData.data.types.map((t: PokemonType) => t.type.name),
+              types: pokeData.data.types.map(
+                (t: PokemonTypeResponse) => t.type.name,
+              ),
             };
           }),
         );
-
         setPokemons(pokemonsImages);
       })
       .catch(e => console.error("ERROR na API", e));
   }, []);
 
+  const filteredPokemons = pokemons.filter(pokemon =>
+    pokemon.name.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase()),
+  );
+
   return (
     <div className={styles.container}>
       <ul className={styles.list}>
-        {pokemons.map(p => (
+        {filteredPokemons.map(p => (
           <li key={p.id} className={styles.item}>
             <span>
               {p.image && <img src={p.image} alt={p.name} loading='lazy' />}

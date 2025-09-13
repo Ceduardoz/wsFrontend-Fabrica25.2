@@ -24,7 +24,7 @@
 .item:hover {
   background-color: aliceblue;
   transition-duration: 0.5s;
-  box-shadow: 2px 2px 2px var(--colorGrayStrong);
+  box-shadow: 2px 2px 4px var(--colorGrayStrong);
   color: var(--colorGrayStrong);
 }
 
