@@ -12,7 +12,6 @@ type Pokemon = {
   name: string;
   url: string;
   image?: string; // url
-  types?: string[];
 };
 
 // Type da estrutuda da API
@@ -70,7 +69,6 @@ export function PokeCards({ searchTerm }: PokeCardsProps) {
                 <h3># {p.id}</h3>
                 <h2>{p.name}</h2>
               </div>
-              <h4>tipos: {p.types?.join(", ")}</h4>
             </li>
           </Link>
         ))}

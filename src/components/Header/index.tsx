@@ -33,7 +33,7 @@ export function Header({
   return (
     <header className={headerClass}>
       <nav className={styles.navBar}>
-        <h1 className={styles.title}>{title}</h1>
+        <h2 className={styles.title}>{title}</h2>
 
         {setSearchTerm && (
           <input

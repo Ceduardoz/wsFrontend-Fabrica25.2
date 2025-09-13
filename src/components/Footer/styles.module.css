@@ -8,6 +8,7 @@
   align-items: center;
 }
 
-.h1 {
+.text {
   color: var(--colorGrayWeak);
+  font-size: 0.6em;
 }

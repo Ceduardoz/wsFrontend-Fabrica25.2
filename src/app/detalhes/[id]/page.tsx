@@ -33,7 +33,7 @@ export default async function PokemonDetail({ params }: PokemonDetailProps) {
                 .map((t: PokemonTypeResponse) => t.type.name)
                 .join(", ")}
             </h4>
-            <h4>Altura: {pokemon.height}m</h4>
+            <h4>Experiência: {pokemon.base_experience}</h4>
             <h4>Peso: {pokemon.weight}Kg</h4>
           </div>
         </div>

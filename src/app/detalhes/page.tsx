@@ -1,3 +1,3 @@
 export default function Details() {
-  return <div>oi</div>;
+  return <div>Details</div>;
 }
