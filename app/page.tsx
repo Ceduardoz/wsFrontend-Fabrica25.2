@@ -2,12 +2,15 @@
 
 import { Header } from "@/src/components/Header";
 import { Footer } from "@/src/components/Footer";
+import { PokeList } from "@/src/components/PokeList";
 
 export default function Home() {
   return (
     <>
       <Header />
-      <main></main>
+      <main>
+        <PokeList />
+      </main>
       <Footer />
     </>
   );
