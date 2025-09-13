@@ -1,19 +1,29 @@
 .header {
+  background: var(--colorGrayStrong)
+    url(../../../public/assets/backgroundPoke-mobile.jpeg) center center / cover
+    no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100%;
   height: 20%;
+  padding: 10px;
+}
+
+.headerSmall {
   background: var(--colorGrayStrong)
     url(../../../public/assets/backgroundPoke-mobile.jpeg) center center / cover
     no-repeat;
-  padding: 20px;
+  height: 10%;
+  padding: 10px 20px;
 }
 
 .navBar {
   color: var(--colorOrangeWeak);
   display: flex;
+  justify-content: center;
+  align-content: center;
   gap: 45px;
   padding: 30px;
 }
@@ -32,12 +42,24 @@
 }
 
 .pokeBtn button {
-  background-color: var(--colorGrayMedium);
+  background-color: var(--colorOrangeWeak);
   padding: 10px 25px;
   font-size: 1.2em;
   border-radius: 8px;
   color: var(--colorGrayWeak);
   font-weight: bold;
+}
+
+.backButton {
+  background-color: var(--colorOrangeWeak);
+  width: 100px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--colorGrayWeak);
+  font-weight: bold;
+  font-size: 1.2em;
 }
 
 /* Tablet */
@@ -76,9 +98,13 @@
   }
 
   .pokeBtn button:hover {
-    background-color: var(--colorGrayWeak);
-    color: var(--colorGrayStrong);
+    background-color: var(--colorOrangeBold);
     transition-duration: 0.3s;
+  }
+
+  .backButton {
+    width: 150px;
+    font-size: 1.5em;
   }
 }
 

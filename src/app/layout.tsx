@@ -1,10 +1,9 @@
-import { Josefin_Sans } from "next/font/google";
+import { Press_Start_2P } from "next/font/google";
 import "./globals.css";
 
-const josefinSans = Josefin_Sans({
+const pressStart2P = Press_Start_2P({
+  weight: "400",
   subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-josefin-sans",
 });
 
 export const metadata = {
@@ -19,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='pt-BR'>
-      <body className={josefinSans.className}>{children}</body>
+      <body className={pressStart2P.className}>{children}</body>
     </html>
   );
 }

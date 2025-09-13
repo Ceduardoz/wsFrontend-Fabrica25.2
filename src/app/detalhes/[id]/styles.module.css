@@ -1,0 +1,82 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--colorGrayWeak);
+  width: 100%;
+  height: 80vh;
+  padding-top: 30px;
+  overflow: hidden;
+}
+
+.content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 50px;
+  width: 400px;
+  height: 400px;
+  background-image: url(../../../../public/assets/3DS.png);
+  background-position: center center;
+}
+
+.content img {
+  text-align: center;
+  position: absolute;
+  top: 50px;
+  left: 135px;
+  width: 140px;
+  height: 140px;
+  z-index: 2;
+}
+
+.divsH4 {
+  color: var(--colorGrayWeak);
+  margin-top: 145px;
+  z-index: 1;
+}
+
+/* Tablets médios (>= 768px) */
+@media (min-width: 768px) {
+  .content {
+    width: 600px;
+    height: 600px;
+    gap: 70px;
+    background-size: cover;
+  }
+
+  .content img {
+    top: 90px;
+    left: 200px;
+    width: 200px;
+    height: 200px;
+  }
+
+  .divsH4 {
+    padding-top: 65px;
+    font-size: 1.5em;
+  }
+}
+
+/* Desktop (>= 1024px) */
+@media (min-width: 1024px) {
+  .content {
+    width: 600px;
+    height: 600px;
+    gap: 50px;
+  }
+
+  .content img {
+    top: 80px;
+    left: 200px;
+    width: 210px;
+    height: 210px;
+  }
+
+  .divsH4 {
+    padding-top: 70px;
+    font-size: 1.6em;
+  }
+}

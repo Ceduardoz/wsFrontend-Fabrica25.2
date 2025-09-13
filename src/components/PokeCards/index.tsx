@@ -61,7 +61,7 @@ export function PokeCards({ searchTerm }: PokeCardsProps) {
     <div className={styles.containers}>
       <ul className={styles.list}>
         {filteredPokemons.map(p => (
-          <Link key={p.id} href={`/pokemon/${p.id}`}>
+          <Link key={p.id} href={`/detalhes/${p.id}`}>
             <li key={p.id} className={styles.item}>
               <span>
                 {p.image && <img src={p.image} alt={p.name} loading='lazy' />}

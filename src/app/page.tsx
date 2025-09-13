@@ -1,9 +1,9 @@
 "use client";
 
-import { Header } from "@/src/components/Header";
-import { Footer } from "@/src/components/Footer";
-import { Main } from "@/src/components/Main";
 import { useState } from "react";
+import { Header } from "@/src/components/Header";
+import { Main } from "@/src/components/Main";
+import { Footer } from "@/src/components/Footer";
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
