@@ -2,6 +2,8 @@
 
 import { api } from "@/src/services/api";
 import { useEffect, useState } from "react";
+import Link from "next/link";
+
 import styles from "./styles.module.css";
 
 // Type de todos os Pokemons
@@ -56,19 +58,21 @@ export function PokeCards({ searchTerm }: PokeCardsProps) {
   );
 
   return (
-    <div className={styles.container}>
+    <div className={styles.containers}>
       <ul className={styles.list}>
         {filteredPokemons.map(p => (
-          <li key={p.id} className={styles.item}>
-            <span>
-              {p.image && <img src={p.image} alt={p.name} loading='lazy' />}
-            </span>
-            <div className={styles.information}>
-              <h3># {p.id}</h3>
-              <h2>{p.name}</h2>
-            </div>
-            <h4>tipos: {p.types?.join(", ")}</h4>
-          </li>
+          <Link key={p.id} href={`/pokemon/${p.id}`}>
+            <li key={p.id} className={styles.item}>
+              <span>
+                {p.image && <img src={p.image} alt={p.name} loading='lazy' />}
+              </span>
+              <div className={styles.information}>
+                <h3># {p.id}</h3>
+                <h2>{p.name}</h2>
+              </div>
+              <h4>tipos: {p.types?.join(", ")}</h4>
+            </li>
+          </Link>
         ))}
       </ul>
     </div>

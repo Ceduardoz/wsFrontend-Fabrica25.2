@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 400px;
+  background-color: var(--colorGrayStrong);
+  padding: 20px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  padding: 30px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.name {
+  text-transform: capitalize;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.image {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+.info {
+  text-align: left;
+}
+
+.info p {
+  font-size: 1rem;
+  margin: 5px 0;
+  color: #555;
+}
+
+.info strong {
+  color: #222;
+}

@@ -2,6 +2,8 @@
 
 import { api } from "@/src/services/api";
 import { useEffect, useState } from "react";
+import Link from "next/link";
+
 import styles from "./styles.module.css";
 
 // Type de todos os Pokemons
@@ -59,14 +61,16 @@ export function PokeList({ searchTerm }: PokeListProps) {
     <div className={styles.container}>
       <ul className={styles.list}>
         {filteredPokemons.map(p => (
-          <li key={p.id} className={styles.item}>
-            <span>
-              {p.image && <img src={p.image} alt={p.name} loading='lazy' />}
-            </span>
-            <span># {p.id}</span>
-            <span>{p.name}</span>
-            <span>tipos: {p.types?.join(", ")}</span>
-          </li>
+          <Link key={p.id} href={`/pokemon/${p.id}`}>
+            <li className={styles.item}>
+              <span>
+                {p.image && <img src={p.image} alt={p.name} loading='lazy' />}
+              </span>
+              <span># {p.id}</span>
+              <span>{p.name}</span>
+              <span>Tipos: {p.types?.join(", ")}</span>
+            </li>
+          </Link>
         ))}
       </ul>
     </div>
