@@ -16,6 +16,7 @@ type Pokemon = {
 // Type da estrutuda da API
 type PokemonTypeResponse = { type: { name: string } };
 
+// Type lista dos pokemons
 type PokeListProps = {
   searchTerm: string;
 };
@@ -49,6 +50,7 @@ export function PokeList({ searchTerm }: PokeListProps) {
       .catch(e => console.error("ERROR na API", e));
   }, []);
 
+  // Filtrando os pokemons
   const filteredPokemons = pokemons.filter(pokemon =>
     pokemon.name.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase()),
   );

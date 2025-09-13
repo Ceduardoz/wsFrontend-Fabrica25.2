@@ -3,12 +3,19 @@
 import styles from "./styles.module.css";
 import { ChangeEvent } from "react";
 
+// Type para as mudanças no main
 type HeaderProps = {
   searchTerm: string;
   setSearchTerm: (value: string) => void;
+  activeTab: "Lista" | "Cards";
+  onTabChange: (tab: "Lista" | "Cards") => void;
 };
 
-export function Header({ searchTerm, setSearchTerm }: HeaderProps) {
+export function Header({
+  searchTerm,
+  setSearchTerm,
+  onTabChange,
+}: HeaderProps) {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) =>
     setSearchTerm(e.target.value);
 
@@ -27,8 +34,8 @@ export function Header({ searchTerm, setSearchTerm }: HeaderProps) {
       </nav>
 
       <div className={styles.pokeBtn}>
-        <button>Lista</button>
-        <button>Cards</button>
+        <button onClick={() => onTabChange("Lista")}>Lista</button>
+        <button onClick={() => onTabChange("Cards")}>Cards</button>
       </div>
     </header>
   );
