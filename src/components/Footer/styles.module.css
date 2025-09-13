@@ -1,0 +1,13 @@
+.footer {
+  background-color: var(--colorGrayStrong);
+  height: 30px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.h1 {
+  color: var(--colorGrayWeak);
+}
