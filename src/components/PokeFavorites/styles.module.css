@@ -1,0 +1,29 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--colorGrayMedium);
+  padding: 10px;
+  border-radius: 12px;
+  width: 350px;
+  height: 300px;
+  position: relative;
+}
+
+.image {
+  width: 200px;
+}
+
+.name {
+  color: var(--colorGrayWeak);
+  margin: 10px 0;
+  text-transform: capitalize;
+}
+
+.button {
+  color: var(--colorOrangeWeak);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+}

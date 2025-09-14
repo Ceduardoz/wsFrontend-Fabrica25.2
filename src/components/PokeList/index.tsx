@@ -3,27 +3,25 @@
 import { api } from "@/src/services/api";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useFavorites } from "@/src/hooks/FavoritesContext";
 
 import styles from "./styles.module.css";
 
-// Type de todos os Pokemons
+type PokemonTypeResponse = { type: { name: string } };
+
 type Pokemon = {
   id: number;
   name: string;
   url: string;
-  image?: string; // url
+  image?: string;
+  types?: string[];
 };
 
-// Type da estrutuda da API
-type PokemonTypeResponse = { type: { name: string } };
-
-// Type lista dos pokemons
-type PokeListProps = {
-  searchTerm: string;
-};
+type PokeListProps = { searchTerm: string };
 
 export function PokeList({ searchTerm }: PokeListProps) {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
+  const { toggleFavorite, isFavorite } = useFavorites();
 
   useEffect(() => {
     api
@@ -31,7 +29,6 @@ export function PokeList({ searchTerm }: PokeListProps) {
       .then(async res => {
         const results: Pokemon[] = res.data.results;
 
-        // Buscando cada pokémon
         const pokemonsImages = await Promise.all(
           results.map(async p => {
             const pokeData = await api.get(p.url);
@@ -46,14 +43,14 @@ export function PokeList({ searchTerm }: PokeListProps) {
             };
           }),
         );
+
         setPokemons(pokemonsImages);
       })
       .catch(e => console.error("ERROR na API", e));
   }, []);
 
-  // Filtrando os pokemons
-  const filteredPokemons = pokemons.filter(pokemon =>
-    pokemon.name.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase()),
+  const filteredPokemons = pokemons.filter(p =>
+    p.name.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
   return (
@@ -65,8 +62,14 @@ export function PokeList({ searchTerm }: PokeListProps) {
               <span>
                 {p.image && <img src={p.image} alt={p.name} loading='lazy' />}
               </span>
-              <span># {p.id}</span>
+              <span>#{p.id}</span>
               <span>{p.name}</span>
+              <button
+                className={styles.favoriteButton}
+                onClick={() => toggleFavorite(p.id)}
+              >
+                {isFavorite(p.id) ? "\u2764" : "\u2661"}
+              </button>
             </li>
           </Link>
         ))}

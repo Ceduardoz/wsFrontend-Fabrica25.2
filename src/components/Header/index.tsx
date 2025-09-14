@@ -27,7 +27,6 @@ export function Header({
   const handleChange = (e: ChangeEvent<HTMLInputElement>) =>
     setSearchTerm && setSearchTerm(e.target.value);
 
-  // Decide a classe do header baseado no contexto
   const headerClass = showBackButton ? styles.headerSmall : styles.header;
 
   return (
@@ -44,20 +43,28 @@ export function Header({
           />
         )}
 
-        {showBackButton && (
-          <button
-            className={styles.backButton}
-            onClick={() => router.push("/")}
-          >
-            Voltar
-          </button>
-        )}
+        <div className={styles.rightButtons}>
+          {showBackButton && (
+            <button
+              className={styles.backButton}
+              onClick={() => router.push("/")}
+            >
+              Voltar
+            </button>
+          )}
+        </div>
       </nav>
 
       {onTabChange && (
         <div className={styles.pokeBtn}>
           <button onClick={() => onTabChange("Lista")}>Lista</button>
           <button onClick={() => onTabChange("Cards")}>Cards</button>
+          <button
+            className={styles.favoritesButton}
+            onClick={() => router.push("/favoritos")}
+          >
+            Favoritos
+          </button>
         </div>
       )}
     </header>

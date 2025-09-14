@@ -1,5 +1,6 @@
 import { Press_Start_2P } from "next/font/google";
 import "./globals.css";
+import { FavoritesProvider } from "@/src/hooks/FavoritesContext"; // ✅ import do provider
 
 const pressStart2P = Press_Start_2P({
   weight: "400",
@@ -18,7 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='pt-BR'>
-      <body className={pressStart2P.className}>{children}</body>
+      <body className={pressStart2P.className}>
+        <FavoritesProvider>{children}</FavoritesProvider>
+      </body>
     </html>
   );
 }

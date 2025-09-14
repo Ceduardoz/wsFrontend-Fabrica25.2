@@ -26,7 +26,7 @@ export default async function PokemonDetail({ params }: PokemonDetailProps) {
           />
           <div className={styles.divsH4}>
             <h4>Nome: {pokemon.name}</h4>
-            <h4>ID: # {pokemon.id}</h4>
+            <h4>ID: #{pokemon.id}</h4>
             <h4>
               Tipo:{" "}
               {pokemon.types
