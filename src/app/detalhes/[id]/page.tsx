@@ -5,14 +5,17 @@ import { Footer } from "@/src/components/Footer";
 import Image from "next/image";
 
 type PokemonDetailProps = {
-  params: { id: string };
+  params: { id: string } | Promise<{ id: string }>; // Pode vir como Promise no Next 15
 };
 
 type PokemonTypeResponse = { type: { name: string } };
 
 export default async function PokemonDetail({ params }: PokemonDetailProps) {
+  // Resolver params caso seja uma Promise
+  const resolvedParams = await params;
+
   // Busca os dados direto pelo id
-  const res = await api.get(`/pokemon/${params.id}`);
+  const res = await api.get(`/pokemon/${resolvedParams.id}`);
   const pokemon = res.data;
 
   return (
@@ -23,6 +26,8 @@ export default async function PokemonDetail({ params }: PokemonDetailProps) {
           <Image
             src={pokemon.sprites.front_default}
             alt={pokemon.name}
+            width={150} // largura definida
+            height={150} // altura definida
             className={styles.image}
           />
           <div className={styles.divsH4}>
