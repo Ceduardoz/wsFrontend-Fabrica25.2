@@ -1,6 +1,6 @@
 .sectionFav {
   background: var(--colorGrayWeak) url(../../../public/assets/details.png);
-  height: 100vh;
+  height: auto;
 }
 
 .container {
@@ -9,7 +9,6 @@
   gap: 20px;
   padding: 20px;
   justify-items: center;
-  height: 90vh;
 }
 
 .sectionNotFound {
