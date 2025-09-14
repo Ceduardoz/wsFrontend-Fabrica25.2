@@ -2,6 +2,7 @@ import { Press_Start_2P } from "next/font/google";
 import "./globals.css";
 import { FavoritesProvider } from "@/src/hooks/FavoritesStorage";
 
+// Font global
 const pressStart2P = Press_Start_2P({
   weight: "400",
   subsets: ["latin"],
@@ -9,8 +10,11 @@ const pressStart2P = Press_Start_2P({
 });
 
 export const metadata = {
-  title: "Pokedex",
+  title: "PokéInfo",
   description: "Minha Pokedex Next.js",
+  icons: {
+    icon: "/assets/favicon.ico",
+  },
 };
 
 export default function RootLayout({

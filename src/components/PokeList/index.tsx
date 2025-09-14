@@ -7,8 +7,10 @@ import { useFavorites } from "@/src/hooks/FavoritesStorage";
 
 import styles from "./styles.module.css";
 
+// Type Resposta da API
 type PokemonTypeResponse = { type: { name: string } };
 
+// Type dos dados dos Pokemons
 type Pokemon = {
   id: number;
   name: string;
@@ -17,6 +19,7 @@ type Pokemon = {
   types?: string[];
 };
 
+// Type da busca do pokémon
 type PokeListProps = { searchTerm: string };
 
 export function PokeList({ searchTerm }: PokeListProps) {
@@ -25,7 +28,7 @@ export function PokeList({ searchTerm }: PokeListProps) {
 
   useEffect(() => {
     api
-      .get("/pokemon?limit=151")
+      .get("/pokemon?limit=151") // Difinido apenas 151 Pokémons
       .then(async res => {
         const results: Pokemon[] = res.data.results;
 
@@ -49,6 +52,7 @@ export function PokeList({ searchTerm }: PokeListProps) {
       .catch(e => console.error("ERROR na API", e));
   }, []);
 
+  // Filtra os pokémons
   const filteredPokemons = pokemons.filter(p =>
     p.name.toLowerCase().includes(searchTerm.toLowerCase()),
   );

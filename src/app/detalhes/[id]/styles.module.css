@@ -23,16 +23,6 @@
   background-position: center center;
 }
 
-.content img {
-  text-align: center;
-  position: absolute;
-  top: 50px;
-  left: 135px;
-  width: 140px;
-  height: 140px;
-  z-index: 2;
-}
-
 .divsH4 {
   color: var(--colorGrayWeak);
   margin-top: 145px;
@@ -41,6 +31,31 @@
 
 .divsH4 h4 {
   padding: 0px 0px 5px 10px;
+}
+
+.content img {
+  text-align: center;
+  position: absolute;
+  top: 50px;
+  left: 135px;
+  width: 140px;
+  height: 140px;
+  z-index: 2;
+
+  /* Animação de pulsar */
+  animation: pokePulse 1s infinite alternate;
+}
+
+@keyframes pokePulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 @media (min-width: 390px) {

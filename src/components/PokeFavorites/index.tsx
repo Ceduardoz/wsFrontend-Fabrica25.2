@@ -3,6 +3,7 @@
 import { useFavorites } from "@/src/hooks/FavoritesStorage";
 import styles from "./styles.module.css";
 
+// Type das informações dos Pokémons
 type PokeFavoritesProps = {
   id: number;
   name: string;

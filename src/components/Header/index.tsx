@@ -24,9 +24,11 @@ export function Header({
 }: HeaderProps) {
   const router = useRouter();
 
+  // Input de busca
   const handleChange = (e: ChangeEvent<HTMLInputElement>) =>
     setSearchTerm && setSearchTerm(e.target.value);
 
+  // Dedide qual Header usar
   const headerClass = showBackButton ? styles.headerSmall : styles.header;
 
   return (

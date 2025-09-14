@@ -8,6 +8,7 @@ import {
   ReactNode,
 } from "react";
 
+// type dos pomkemons favoritos e funções de manipulção
 type FavoritesContextType = {
   favorites: number[];
   toggleFavorite: (id: number) => void;
@@ -20,6 +21,7 @@ const FavoritesContext = createContext<FavoritesContextType | undefined>(
 
 export function FavoritesProvider({ children }: { children: ReactNode }) {
   const [favorites, setFavorites] = useState<number[]>(() => {
+    // Inicia o localStarage
     if (typeof window !== "undefined") {
       const stored = localStorage.getItem("favorites");
       return stored ? JSON.parse(stored) : [];
@@ -27,6 +29,7 @@ export function FavoritesProvider({ children }: { children: ReactNode }) {
     return [];
   });
 
+  // Alterar o localStorage caso atualize
   useEffect(() => {
     localStorage.setItem("favorites", JSON.stringify(favorites));
   }, [favorites]);
@@ -37,6 +40,7 @@ export function FavoritesProvider({ children }: { children: ReactNode }) {
     );
   };
 
+  // Verificar se o pokémon é favorito
   const isFavorite = (id: number) => favorites.includes(id);
 
   return (

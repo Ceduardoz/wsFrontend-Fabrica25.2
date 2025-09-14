@@ -1,4 +1,3 @@
-// src/app/detalhes/[id]/page.tsx
 import { api } from "@/src/services/api";
 import styles from "./styles.module.css";
 import { Header } from "@/src/components/Header";
@@ -10,7 +9,7 @@ type PokemonTypeResponse = { type: { name: string } };
 export default async function PokemonDetail({
   params,
 }: {
-  params: Record<string, string>; // Next 13 App Router
+  params: Record<string, string>;
 }) {
   // Busca os dados direto pelo id
   const res = await api.get(`/pokemon/${params.id}`);

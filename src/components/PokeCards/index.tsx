@@ -62,6 +62,7 @@ export function PokeCards({ searchTerm }: PokeCardsProps) {
     <div className={styles.containers}>
       <ul className={styles.list}>
         {filteredPokemons.map(p => (
+          // Direciona para a página de detalhes dos pokémons
           <Link key={p.id} href={`/detalhes/${p.id}`}>
             <li key={p.id} className={styles.item}>
               <span>
