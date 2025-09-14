@@ -3,7 +3,7 @@
 import { api } from "@/src/services/api";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useFavorites } from "@/src/hooks/FavoritesContext";
+import { useFavorites } from "@/src/hooks/FavoritesStorage";
 
 import styles from "./styles.module.css";
 

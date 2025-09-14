@@ -1,6 +1,6 @@
 "use client";
 
-import { useFavorites } from "@/src/hooks/FavoritesContext";
+import { useFavorites } from "@/src/hooks/FavoritesStorage";
 import styles from "./styles.module.css";
 
 type PokeFavoritesProps = {

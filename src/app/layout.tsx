@@ -1,6 +1,6 @@
 import { Press_Start_2P } from "next/font/google";
 import "./globals.css";
-import { FavoritesProvider } from "@/src/hooks/FavoritesContext"; // ✅ import do provider
+import { FavoritesProvider } from "@/src/hooks/FavoritesStorage"; // ✅ import do provider
 
 const pressStart2P = Press_Start_2P({
   weight: "400",

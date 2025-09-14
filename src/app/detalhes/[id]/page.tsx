@@ -2,15 +2,16 @@ import { api } from "@/src/services/api";
 import styles from "./styles.module.css";
 import { Header } from "@/src/components/Header";
 import { Footer } from "@/src/components/Footer";
+import Image from "next/image";
 
 type PokemonDetailProps = {
   params: { id: string };
 };
 
-// Type da resposta da API
 type PokemonTypeResponse = { type: { name: string } };
 
 export default async function PokemonDetail({ params }: PokemonDetailProps) {
+  // Busca os dados direto pelo id
   const res = await api.get(`/pokemon/${params.id}`);
   const pokemon = res.data;
 
@@ -19,7 +20,7 @@ export default async function PokemonDetail({ params }: PokemonDetailProps) {
       <Header showBackButton={true} title='PokéInfo' />
       <div className={styles.container}>
         <div className={styles.content}>
-          <img
+          <Image
             src={pokemon.sprites.front_default}
             alt={pokemon.name}
             className={styles.image}
@@ -34,7 +35,7 @@ export default async function PokemonDetail({ params }: PokemonDetailProps) {
                 .join(", ")}
             </h4>
             <h4>Experiência: {pokemon.base_experience}</h4>
-            <h4>Peso: {pokemon.weight}Kg</h4>
+            <h4>Peso: {pokemon.weight / 10} Kg</h4>
           </div>
         </div>
       </div>

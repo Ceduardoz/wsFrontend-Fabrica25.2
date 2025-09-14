@@ -1,6 +1,6 @@
 "use client";
 
-import { useFavorites } from "@/src/hooks/FavoritesContext";
+import { useFavorites } from "@/src/hooks/FavoritesStorage";
 import { useEffect, useState } from "react";
 import { api } from "@/src/services/api";
 import { PokeFavorites } from "@/src/components/PokeFavorites";
