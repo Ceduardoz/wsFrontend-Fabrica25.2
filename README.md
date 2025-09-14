@@ -58,6 +58,7 @@ git clone https://github.com/Ceduardoz/wsFrontend-Fabrica25.2.git
 ```bash
 cd pokeinfo
 npm install
+npm install axios
 npm run dev
 ```
 
