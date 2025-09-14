@@ -38,6 +38,16 @@
   padding-bottom: 10px;
 }
 
+.favoriteButton {
+  position: relative;
+  color: var(--colorOrangeWeak);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 2em;
+  z-index: 1;
+}
+
 /* Tablet */
 @media (min-width: 601px) {
   .list {

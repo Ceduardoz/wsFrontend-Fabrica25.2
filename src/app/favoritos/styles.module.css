@@ -1,5 +1,6 @@
 .sectionFav {
   background: var(--colorGrayWeak) url(../../../public/assets/details.png);
+  height: 100vh;
 }
 
 .container {
@@ -8,6 +9,27 @@
   gap: 20px;
   padding: 20px;
   justify-items: center;
+  height: 90vh;
+}
+
+.sectionNotFound {
+  background: var(--colorGrayWeak) url(../../../public/assets/details.png);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.containerNotFound {
+  background-color: var(--colorGrayStrong);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 330px;
+  height: 300px;
+  border-radius: 16px;
+  text-align: center;
+  color: var(--colorGrayWeak);
 }
 
 .card {

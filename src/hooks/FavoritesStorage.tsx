@@ -19,15 +19,14 @@ const FavoritesContext = createContext<FavoritesContextType | undefined>(
 );
 
 export function FavoritesProvider({ children }: { children: ReactNode }) {
-  const [favorites, setFavorites] = useState<number[]>([]);
+  const [favorites, setFavorites] = useState<number[]>(() => {
+    if (typeof window !== "undefined") {
+      const stored = localStorage.getItem("favorites");
+      return stored ? JSON.parse(stored) : [];
+    }
+    return [];
+  });
 
-  // Carrega favoritos do LocalStorage
-  useEffect(() => {
-    const stored = localStorage.getItem("favorites");
-    if (stored) setFavorites(JSON.parse(stored));
-  }, []);
-
-  // Atualiza LocalStorage quando favorites mudar
   useEffect(() => {
     localStorage.setItem("favorites", JSON.stringify(favorites));
   }, [favorites]);
@@ -49,7 +48,6 @@ export function FavoritesProvider({ children }: { children: ReactNode }) {
   );
 }
 
-// Hook para usar o contexto
 export function useFavorites() {
   const context = useContext(FavoritesContext);
   if (!context)

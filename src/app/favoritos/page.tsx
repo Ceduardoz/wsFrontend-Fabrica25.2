@@ -6,6 +6,7 @@ import { api } from "@/src/services/api";
 import { PokeFavorites } from "@/src/components/PokeFavorites";
 import { Header } from "@/src/components/Header";
 import styles from "./styles.module.css";
+import { Footer } from "@/src/components/Footer";
 
 type Pokemon = {
   id: number;
@@ -42,21 +43,33 @@ export default function FavoritosPage() {
 
   if (loading) return <p className={styles.container}>Carregando...</p>;
   if (pokemons.length === 0)
-    return <p className={styles.container}>Nenhum Pokémon favoritado.</p>;
+    return (
+      <>
+        <Header showBackButton={true} title='PokéInfo' />
+        <section className={styles.sectionNotFound}>
+          <div className={styles.containerNotFound}>
+            <p>Nenhum Pokémon favoritado.</p>
+          </div>
+        </section>
+      </>
+    );
 
   return (
-    <section className={styles.sectionFav}>
+    <>
       <Header showBackButton={true} title='PokéInfo' />
-      <div className={styles.container}>
-        {pokemons.map(p => (
-          <PokeFavorites
-            key={p.id}
-            id={p.id}
-            name={p.name}
-            image={p.sprites.front_default}
-          />
-        ))}
-      </div>
-    </section>
+      <section className={styles.sectionFav}>
+        <div className={styles.container}>
+          {pokemons.map(p => (
+            <PokeFavorites
+              key={p.id}
+              id={p.id}
+              name={p.name}
+              image={p.sprites.front_default}
+            />
+          ))}
+        </div>
+      </section>
+      <Footer />
+    </>
   );
 }

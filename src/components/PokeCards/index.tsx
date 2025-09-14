@@ -3,6 +3,7 @@
 import { api } from "@/src/services/api";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useFavorites } from "@/src/hooks/FavoritesStorage";
 
 import styles from "./styles.module.css";
 
@@ -24,6 +25,7 @@ type PokeCardsProps = {
 
 export function PokeCards({ searchTerm }: PokeCardsProps) {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
+  const { toggleFavorite, isFavorite } = useFavorites();
 
   useEffect(() => {
     api
@@ -66,9 +68,15 @@ export function PokeCards({ searchTerm }: PokeCardsProps) {
                 {p.image && <img src={p.image} alt={p.name} loading='lazy' />}
               </span>
               <div className={styles.information}>
-                <h3># {p.id}</h3>
+                <h3>#{p.id}</h3>
                 <h2>{p.name}</h2>
               </div>
+              <button
+                className={styles.favoriteButton}
+                onClick={() => toggleFavorite(p.id)}
+              >
+                {isFavorite(p.id) ? "\u2764" : "\u2661"}
+              </button>
             </li>
           </Link>
         ))}
